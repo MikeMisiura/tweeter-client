@@ -1,17 +1,28 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import TweeterNavbar from './Navbar';
+import { UserProvider } from './providers/UserProviders';
+import PostFeed from './PostFeed';
+
 
 function App() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <div>
+        <BrowserRouter>
+          <nav>
+            <TweeterNavbar />
+          </nav>
+          <Routes>
+            <Route exact path="/" element={<PostFeed />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </UserProvider>
   );
 }
 
