@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
-import UserContext from "./contexts/UserContext";
+import UserContext from "../contexts/UserContext";
 
 function SignIn() {
     const [username, setUsername] = useState('')
@@ -18,7 +18,6 @@ function SignIn() {
 
         signInUser(user)
             .then((response) => {
-                console.log(response.token)
                 navigate('/')
             })
             .catch(error => {

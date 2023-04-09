@@ -1,27 +1,35 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import TweeterNavbar from './Navbar';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import TweeterNavbar from './components/Navbar';
 import { UserProvider } from './providers/UserProviders';
-import PostFeed from './PostFeed';
-
+import PostFeed from './components/PostFeed';
+import Profile from './components/Profile';
+import { MessageProvider } from './providers/MessageProviders';
+import EditMessage from './components/EditMessage';
+import EditProfile from './components/EditProfile';
 
 function App() {
   return (
     <UserProvider>
-      <div>
+      <MessageProvider>
         <BrowserRouter>
           <nav>
             <TweeterNavbar />
           </nav>
-          <Routes>
-            <Route exact path="/" element={<PostFeed />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-          </Routes>
+          <div id='page'>
+            <Routes>
+              <Route exact path="/" element={<PostFeed />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/edit-message/:id" element={<EditMessage />} />
+              <Route path="/edit-profile/:id" element={<EditProfile />} />
+              <Route path="/:id" element={<Profile />} />
+            </Routes>
+          </div>
         </BrowserRouter>
-      </div>
+      </MessageProvider>
     </UserProvider>
   );
 }

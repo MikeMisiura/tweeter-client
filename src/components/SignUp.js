@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import UserContext from "./contexts/UserContext";
+import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 // SignUp form heavily modified from react-bootstrap documentation

@@ -1,5 +1,9 @@
 body {
     background-color: #b3aaa7;
+}
+
+#page {
+    background-color: #b3aaa7;
     color: rgb(0, 0, 0);
     padding: 40px;
     font-family: Sans-Serif;
@@ -13,3 +17,10 @@ body {
     font-family: Sans-Serif;
     /* text-align: center; */
 }
+
+.card {
+    margin-bottom: 20px;
+    font-family: Sans-Serif;
+    /* text-align: center; */
+}
+
